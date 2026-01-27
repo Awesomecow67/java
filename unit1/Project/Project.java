@@ -4,8 +4,7 @@ import java.util.Scanner;
 public class Project {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String name = "";
-        name = getValidString(input, "Please enter your first name: ");
+        String name = getValidString(input, "Please enter your first name: ");
         char firstInitial = name.charAt(0);
         char lastInitial = getValidString(input, "Please enter your last initial: ").charAt(0);
         double num1 = getValidDouble(input, "Please enter a non-zero number: ");
