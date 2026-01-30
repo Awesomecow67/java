@@ -1,5 +1,6 @@
 package src.unit2.Practice;
 
+import java.util.Scanner;
 import java.util.Random;
 
 public class Practice {
@@ -37,8 +38,10 @@ public class Practice {
         System.out.println("The middle number is: " + middle);
         
         
-        int color = 2;
-        String result = switch (color) {
+        int selection = 2;
+
+        int colorSelection = getValidInt(new Scanner(System.in), "Select a color (1: Yellow, 2: Blue, 3: Red): ");
+        String result = switch (colorSelection) {
         case 1 -> "The color is yellow";
         case 2 -> "The color is blue";
         case 3 -> "The color is red";
@@ -46,5 +49,30 @@ public class Practice {
         };
         
         System.out.println(result);
+    }
+
+    public static int getValidInt(Scanner input, String prompt) {
+        int value;
+        while (true) {
+            System.out.print(prompt);
+            if (input.hasNextInt()) {
+                value = input.nextInt();
+                input.nextLine();
+
+                if (value != 0) {
+                    if (value > 3 || value < 1) {
+                        System.out.println("The number is out of bounds.");
+                    } else {
+                        return value;
+                    }
+                } else {
+                    System.out.println("The number cannot be zero.");
+                }
+            }
+            else {
+                System.out.println("Invalid input. Please enter a valid number.");
+                input.nextLine();
+            }
+        }
     }
 }
