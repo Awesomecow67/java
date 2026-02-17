@@ -6,7 +6,7 @@ public class exercise2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int number = getValidInt(input, "Please input a number between 1-999: ");
-        for (int i = 13; i < number; i += 13) {
+        for (int i = 13; i <= number; i += 13) {
             System.out.println(i);
         };
     }
